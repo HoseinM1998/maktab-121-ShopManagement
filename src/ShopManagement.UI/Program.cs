@@ -63,6 +63,17 @@ builder.Host.ConfigureLogging(o => {
 
         builder.Services.AddRazorPages();
 
+        builder.Services.AddMemoryCache();
+
+
+        builder.Services.AddDistributedMemoryCache();
+        //builder.Services.AddStackExchangeRedisCache(options =>
+        //{
+        //    options.Configuration = builder.Configuration.GetConnectionString("172.0.0.1:9999");
+        //    options.InstanceName = "SampleInstance";
+        //});
+
+    builder.Services.AddResponseCaching();
 
         //builder.Services.AddScoped<ShopDbContext, ShopDbContext>();
         string? connectionString = builder.Configuration.GetConnectionString("ShopDb");
@@ -124,6 +135,7 @@ builder.Host.ConfigureLogging(o => {
         app.UseAuthorization();
 
         app.MapStaticAssets();
+        app.UseResponseCaching();
 
         //if (app.Environment.IsEnvironment("Erfan"))
         //{
