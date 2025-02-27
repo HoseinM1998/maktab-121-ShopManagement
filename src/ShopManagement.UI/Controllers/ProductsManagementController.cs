@@ -74,6 +74,7 @@ namespace ShopManagement.MvcUI.Controllers
             //}
         }
 
+        [ResponseCache(Duration = 20, Location = ResponseCacheLocation.Client, NoStore = false)]
         public async Task<IActionResult> List()
         {
             // 01

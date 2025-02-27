@@ -15,6 +15,7 @@ namespace ShopManagement.Infrastructures.Repositories
 
         public async Task<List<Product>> GetProducts()
         {
+            await Task.Delay(5000);
             List<Product> products = _dbContext.Products.Where(w => w.IsDeleted == false).ToList();
             return products;
         }
