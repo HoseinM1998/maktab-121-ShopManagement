@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Identity;
 using ShopManagement.Domain.Entities;
 using Serilog;
 using Microsoft.Extensions.Logging.Configuration;
+using ShopManagement.MvcUI.WebFramework.Mvc.Fillters;
 
 
 Log.Logger = new LoggerConfiguration()
@@ -58,15 +59,19 @@ builder.Host.ConfigureLogging(o => {
 
 
         // Add services to the container.
-        builder.Services.AddControllersWithViews()
+        builder.Services.AddControllersWithViews(options =>
+            {
+                options.Filters.Add<SampleActionFilter>(order:1);
+            })
             .AddRazorRuntimeCompilation();
+        builder.Services.AddScoped<SampleActionFilter>();
+
 
         builder.Services.AddRazorPages();
 
         builder.Services.AddMemoryCache();
-
-
         builder.Services.AddDistributedMemoryCache();
+
         //builder.Services.AddStackExchangeRedisCache(options =>
         //{
         //    options.Configuration = builder.Configuration.GetConnectionString("172.0.0.1:9999");

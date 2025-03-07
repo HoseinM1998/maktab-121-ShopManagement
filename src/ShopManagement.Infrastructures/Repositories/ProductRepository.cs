@@ -1,5 +1,6 @@
 ﻿using ShopManagement.Domain.Contracts;
 using ShopManagement.Domain.Entities;
+using ShopManagement.Framework.CustomExceptions;
 using ShopManagement.Infrastructures.Db;
 
 namespace ShopManagement.Infrastructures.Repositories
@@ -45,6 +46,9 @@ namespace ShopManagement.Infrastructures.Repositories
         public int EditProducts(int id, string name, int price, int quantity, int userId)
         {
             var p = _dbContext.Products.FirstOrDefault(x => x.Id == id);
+            if (p is null)
+                throw new NotFoundException();
+
             p.Title = name;
             p.Price = price;
             p.Qty = quantity;

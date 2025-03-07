@@ -1,31 +1,17 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using System.Diagnostics;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Razor;
 using ShopManagement.Domain.Contracts;
 using ShopManagement.Domain.Entities;
 using ShopManagement.Framework;
 using ShopManagement.MvcUI.Models.ProductManagement;
-using ShopManagement.MvcUI.WebFramework;
-
-
+using ShopManagement.MvcUI.WebFramework.Extensions;
+using ShopManagement.MvcUI.WebFramework.Mvc.BaseClasses;
+using ShopManagement.MvcUI.WebFramework.Mvc.Fillters;
 
 
 namespace ShopManagement.MvcUI.Controllers
 {
-
-    public abstract class MyCustomRazorPage<T> : RazorPage<T>
-    {
-
-        public string GetName(string name) => name;
-
-    }
-
-    public class MyCustomController : Controller
-    {
-        public string GetName(string name) => name + name;
-    }
-
-
     //public class Person
     //{
     //    public int Id { get; set; }
@@ -34,6 +20,7 @@ namespace ShopManagement.MvcUI.Controllers
     //}
 
     [Authorize]
+    //[ServiceFilter(typeof(SampleActionFilter))]
     public class ProductsManagementController : MyCustomController
     {
         private readonly IProductAppServices _productAppServices;
