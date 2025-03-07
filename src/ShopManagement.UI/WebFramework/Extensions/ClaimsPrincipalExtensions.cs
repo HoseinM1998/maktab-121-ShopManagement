@@ -1,6 +1,6 @@
 ﻿using System.Security.Claims;
 
-namespace ShopManagement.MvcUI.WebFramework
+namespace ShopManagement.MvcUI.WebFramework.Extensions
 {
     public static class ClaimsPrincipalExtensions
     {

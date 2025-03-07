@@ -44,6 +44,8 @@
 	  <Folder Include="Areas\Supplier\Models\" />
 	  <Folder Include="Areas\Supplier\Pages\" />
 	  <Folder Include="Areas\Supplier\Views\" />
+	  <Folder Include="NewFolder\" />
+	  <Folder Include="WebFramework\Middlewares\" />
 	</ItemGroup>
 
 </Project>

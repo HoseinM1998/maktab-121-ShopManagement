@@ -1,8 +1,10 @@
 ﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
 @using ShopManagement.Framework
 @using ShopManagement.MvcUI.Models.ProductManagement
+@using ShopManagement.MvcUI.WebFramework.Mvc
+@using ShopManagement.MvcUI.WebFramework.Mvc.BaseClasses
 @model ShopManagement.MvcUI.Models.ProductManagement.AddProductViewModel
-@inherits ShopManagement.MvcUI.Controllers.MyCustomRazorPage<ShopManagement.MvcUI.Models.ProductManagement.AddProductViewModel>
+@inherits MyCustomRazorPage<AddProductViewModel>
 
 <div class="container px-5 my-5">
 
